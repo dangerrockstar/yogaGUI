@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            // The number of spaces a tab is equal to.
+            "editor.tabSize": 4,
+            // Insert spaces when pressing Tab.
+            "editor.insertSpaces": true,
+            // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+            "editor.detectIndentation": true
+        }
+    ]
+}
