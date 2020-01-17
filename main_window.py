@@ -36,6 +36,8 @@ class MainWindow(QWidget):
     def viewCam(self):
         # read image in BGR format
         ret, image = self.cap.read()
+        # rotate image 
+        image = cv2.flip(image,1)
         # convert image to RGB format
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         # get image infos
