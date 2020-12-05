@@ -32,14 +32,23 @@ class MainWindow(QWidget):
         # set control_bt callback clicked  function
         self.ui.control_bt.clicked.connect(self.controlTimer)
 
+    def basicImgProc(self , img):
+        face_cascade = cv2.CascadeClassifier('E:/video_analytics-master/video_analytics-master/case_cade xml/haarcascade_frontalface_default.xml')
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        face = face_cascade.detectMultiScale(gray,1.3,5)
+        for (x,y,w,h) in face:
+            cv2.rectangle(img,(x,x),(x+w,y+h),(0,225,0),2)
+            # print(x,y,w,h,"\n" , face)
+            return img
     # view camera
     def viewCam(self):
         # read image in BGR format
         ret, image = self.cap.read()
         # rotate image 
         image = cv2.flip(image,1)
-        # convert image to RGB format
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        # call function
+        self.basicImgProc(image)
+        # cv2.rectangle(image , (0,250) , (250,0) ,(0,255,0) , 5 )
         # get image infos
         height, width, channel = image.shape
         step = channel * width

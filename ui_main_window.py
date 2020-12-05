@@ -29,6 +29,6 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Cam view"))
+        Form.setWindowTitle(_translate("Form", "face tracking"))
         self.image_label.setText(_translate("Form", ""))
         self.control_bt.setText(_translate("Form", "Start Camera"))
