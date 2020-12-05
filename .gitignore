@@ -1,3 +1,3 @@
 .vscode/settings.json
 *.pyc
-__pycache__/ui_main_window.cpython-37.pyc
+/__pycache__
