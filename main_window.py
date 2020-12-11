@@ -24,7 +24,9 @@ class MainWindow(QWidget):
         super().__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-
+        self.face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
+        #mask
+        self.img2 = cv2.imread('./Clown_Mask.png')
         # create a timer
         self.timer = QTimer()
         # set timer timeout callback function
@@ -33,13 +35,13 @@ class MainWindow(QWidget):
         self.ui.control_bt.clicked.connect(self.controlTimer)
 
     def basicImgProc(self , img):
-        face_cascade = cv2.CascadeClassifier('E:/video_analytics-master/video_analytics-master/case_cade xml/haarcascade_frontalface_default.xml')
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        face = face_cascade.detectMultiScale(gray,1.3,5)
+        face = self.face_cascade.detectMultiScale(gray,1.3,5)
         for (x,y,w,h) in face:
             cv2.rectangle(img,(x,x),(x+w,y+h),(0,225,0),2)
-            # print(x,y,w,h,"\n" , face)
+            # img = np.concatenate((img, self.img2), axis=1)
             return img
+        
     # view camera
     def viewCam(self):
         # read image in BGR format
